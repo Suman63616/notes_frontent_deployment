@@ -2,10 +2,11 @@ import { useGetUsersQuery } from "./usersApiSlice"
 import User from './User'
 import useTitle from "../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
+import useAuth from '../../hooks/useAuth'
 
 const UsersList = () => {
-    useTitle('EasyNotes: Users List')
-
+    useTitle('techNotes: Users List')
+    const { isAdmin } = useAuth()
     const {
         data: users,
         isLoading,
@@ -13,7 +14,7 @@ const UsersList = () => {
         isError,
         error
     } = useGetUsersQuery('usersList', {
-        pollingInterval: 20000,
+        pollingInterval: 9000,
         refetchOnFocus: true,
         refetchOnMountOrArgChange: true
     })
@@ -38,7 +39,8 @@ const UsersList = () => {
                     <tr>
                         <th scope="col" className="table__th user__username">Username</th>
                         <th scope="col" className="table__th user__roles">Roles</th>
-                        <th scope="col" className="table__th user__edit">Edit</th>
+                        {!isAdmin && <br/>}
+                        {isAdmin && <th scope="col" className="table__th user__edit">edit</th>}
                     </tr>
                 </thead>
                 <tbody>

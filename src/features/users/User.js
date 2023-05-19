@@ -30,7 +30,8 @@ const User = ({ userId }) => {
             <tr className="table__row user">
                 <td className={`table__cell ${cellStatus}`}>{user.username}</td>
                 <td className={`table__cell ${cellStatus}`}>{userRolesString}</td>
-                <td className={`table__cell ${cellStatus}`}>
+                {!isAdmin && <br/>}
+               { isAdmin && <td className={`table__cell ${cellStatus}`}>
                     <button
                         className="icon-button table__button"
                         onClick={handleEdit}
@@ -39,7 +40,7 @@ const User = ({ userId }) => {
                     >
                         <FontAwesomeIcon icon={faPenToSquare} />
                     </button>
-                </td>
+                </td>}
             </tr>
         )
 
