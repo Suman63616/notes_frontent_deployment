@@ -10,7 +10,7 @@
 
 :root {
   /* COLORS */
-  --BGCOLOR: #216c9e;
+  --BGCOLOR: hsl(204, 65%, 37%);
   --BORDER-COLOR: #FFF;
   --COLOR: #FFF;
   --ERROR: firebrick;
@@ -68,12 +68,27 @@
 body {
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
-  background-color: var(--BGCOLOR);
+
   color: var(--COLOR);
-  background-image: url('./img/background1.avif');
-  background-size:contain;
+  background-color: hsla(204, 19%, 45%, 0.294);
+  background-image: url('./img/background1.jpg');
+  background-size:cover;
   background-position: top right;
-  background-blend-mode: multiply;
+  background-blend-mode:multiply;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+  
+    color: var(--COLOR);
+    background-color: hsla(204, 19%, 45%, 0.294);
+    background-image: url('./img/background2.jpg');
+    background-size:cover;
+    background-position: top right;
+    background-blend-mode:multiply;
+  }
 }
 
 input,
