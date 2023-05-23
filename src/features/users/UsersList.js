@@ -5,7 +5,7 @@ import PulseLoader from 'react-spinners/PulseLoader'
 import useAuth from '../../hooks/useAuth'
 
 const UsersList = () => {
-    useTitle('techNotes: Users List')
+    useTitle('EasyNotes: Users List')
     const { isAdmin } = useAuth()
     const {
         data: users,
@@ -18,6 +18,8 @@ const UsersList = () => {
         refetchOnFocus: true,
         refetchOnMountOrArgChange: true
     })
+
+    const tableClass = (!isAdmin) ? "tableClass" : ""
 
     let content
 
@@ -34,12 +36,12 @@ const UsersList = () => {
         const tableContent = ids?.length && ids.map(userId => <User key={userId} userId={userId} />)
 
         content = (
-            <table className="table table--users">
+            <table className={`table table--users ${tableClass}`}>
                 <thead className="table__thead">
                     <tr>
                         <th scope="col" className="table__th user__username">Username</th>
                         <th scope="col" className="table__th user__roles">Roles</th>
-                        {!isAdmin && <br/>}
+                       
                         {isAdmin && <th scope="col" className="table__th user__edit">edit</th>}
                     </tr>
                 </thead>

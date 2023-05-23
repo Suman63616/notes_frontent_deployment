@@ -29,8 +29,8 @@ const User = ({ userId }) => {
             
             <tr className="table__row user">
                 <td className={`table__cell ${cellStatus}`}>{user.username}</td>
-                <td className={`table__cell ${cellStatus}`}>{userRolesString}</td>
-                {!isAdmin && <br/>}
+                <td className={`table__cell table__cell2 ${cellStatus}`}>{userRolesString}</td>
+              
                { isAdmin && <td className={`table__cell ${cellStatus}`}>
                     <button
                         className="icon-button table__button"
