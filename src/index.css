@@ -410,7 +410,7 @@ tr {
   gap: 0.5em;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
@@ -421,6 +421,20 @@ tr {
 
   .icon-button {
     font-size: 1.5rem;
+  }
+  .welcome_Links {
+    width: 100%;
+  }
+
+  .login_{
+    width: 30%;
+  }
+
+  .tableClass {
+   
+    width: 100%;
+    grid-template-columns: 1fr 1fr ;
+    
   }
 }
 
