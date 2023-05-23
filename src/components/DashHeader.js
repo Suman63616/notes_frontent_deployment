@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import logo from '../img/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faFileCirclePlus,
@@ -43,6 +44,8 @@ const DashHeader = () => {
         dashClass = "dash-header__container--small"
     }
 
+    const dashHeader__Bg =  !DASH_REGEX.test(pathname) ? 'dashHeader__Bg' : ''
+
     let newNoteButton = null
     if (NOTES_REGEX.test(pathname)) {
         newNoteButton = (
@@ -57,18 +60,19 @@ const DashHeader = () => {
     }
 
     let newUserButton = null
+    if (isAdmin) {
     if (USERS_REGEX.test(pathname)) {
         newUserButton = (
             <button
                 className="icon-button"
                 title="New User"
                 onClick={onNewUserClicked}
-                disabled={!isAdmin}
             >
                 <FontAwesomeIcon icon={faUserPlus} />
             </button>
         )
     }
+}
 
     let userButton = null
     if (isManager || isAdmin) {
@@ -129,11 +133,15 @@ const DashHeader = () => {
         <>
             <p className={errClass}>{error?.data?.message}</p>
 
-            <header className="dash-header">
+            <header className={`dash-header ${dashHeader__Bg}`}>
                 <div className={`dash-header__container ${dashClass}`}>
+                    <div className='logo'>
+                <img src={logo} alt="logo" width="24px" />
+                
                     <Link to="/dash">
-                        <h1 className="dash-header__title">EasyNotes</h1>
+                        <h4 className="dash-header__title">EasyNotes</h4>
                     </Link>
+                    </div>
                     <nav className="dash-header__nav">
                         {buttonContent}
                     </nav>

@@ -8,7 +8,7 @@ import useTitle from '../../hooks/useTitle'
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
-    useTitle('EasyNotes Login')
+    useTitle('Employee Login')
 
     const userRef = useRef()
     const errRef = useRef()
@@ -64,7 +64,7 @@ const Login = () => {
     const content = (
         <section className="public">
             <header>
-                <h1>Employee Login</h1>
+                <h1>Login</h1>
             </header>
             <main className="login">
                 <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
@@ -107,7 +107,8 @@ const Login = () => {
                 </form>
             </main>
             <footer>
-                <Link to="/">Back to Home</Link>
+               
+            <Link to="/"> <div className='back_'>Back ↩ </div></Link>
             </footer>
         </section>
     )

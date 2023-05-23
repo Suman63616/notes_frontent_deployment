@@ -12,6 +12,9 @@ const DashFooter = () => {
 
     const onGoHomeClicked = () => navigate('/dash')
 
+    const DASH_REGEX = /^\/dash(\/)?$/
+    const dashFooter__Bg =  !DASH_REGEX.test(pathname) ? 'dashFooter__Bg' : ''
+
     let goHomeButton = null
     if (pathname !== '/dash') {
         goHomeButton = (
@@ -26,7 +29,7 @@ const DashFooter = () => {
     }
 
     const content = (
-        <footer className="dash-footer">
+        <footer className={`dash-footer ${dashFooter__Bg}` }>
             {goHomeButton}
             <p>Current User: {username}</p>
             <p>Status: {status}</p>
